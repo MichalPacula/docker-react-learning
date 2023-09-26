@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t mpac60/docker-react-learning -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true mpac60/docker-react-learning npm run test
